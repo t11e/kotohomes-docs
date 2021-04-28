@@ -39,7 +39,7 @@ The parameters listed below may be added to the query string to filter the resul
 | **longitude** *          | float        | Geographic longitude of center location                                                  |
 | **radius** *             | float        | Distance in miles from the provide `latitude` and `longitude`                            |
 
-(*) All 3 parameters must be provided.
+(*) When location-based search is used, all 3 parameters must be provided.
 
 
 
