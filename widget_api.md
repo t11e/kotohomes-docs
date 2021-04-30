@@ -82,8 +82,8 @@ The listings widget renders one or more listings in a compact grid.
 
 ### Bookmarklet
 
-Add <a href='javascript:(function()%7Bvar t%3D"https%3A%2F%2Fwidgets.kotohomes.com"%3Bvar s%3Ddocument.createElement("link")%3Bs.rel%3D"stylesheet"%3Bs.href%3Dt%2B"%2Fwidgets.css"%3Bdocument.getElementsByTagName("head")%5B0%5D.appendChild(s)%3Bvar e%3Ddocument.createElement("script")%3Be.src%3Dt%2B"%2Fwidgets.js"%3Bdocument.getElementsByTagName("head")%5B0%5D.appendChild(e)%7D)()%3B)'
->this bookmarklet</a> to your browser for testing the widgets. It injects
+Add [this bookmarklet](javascript:%28function%28%29%7Bvar%20t%3D%22https%3A%2F%2Fwidgets.kotohomes.com%22%3Bvar%20s%3Ddocument.createElement%28%22link%22%29%3Bs.rel%3D%22stylesheet%22%3Bs.href%3Dt%2B%22%2Fwidgets.css%22%3Bdocument.getElementsByTagName%28%22head%22%29%5B0%5D.appendChild%28s%29%3Bvar%20e%3Ddocument.createElement%28%22script%22%29%3Be.src%3Dt%2B%22%2Fwidgets.js%22%3Bdocument.getElementsByTagName%28%22head%22%29%5B0%5D.appendChild%28e%29%7D%29%28%29%3B)
+to your browser for testing the widgets. It injects
 
 ```html
     <link rel="stylesheet" href="https://widgets.kotohomes.com/widgets.css" />
