@@ -79,3 +79,17 @@ The listings widget renders one or more listings in a compact grid.
     unspecified
 
 `zip_codes` (string or array of strings) - filters results by zip_code.
+
+### Bookmarklet
+
+Add <a href='javascript:(function()%7Bvar t%3D"https%3A%2F%2Fwidgets.kotohomes.com"%3Bvar s%3Ddocument.createElement("link")%3Bs.rel%3D"stylesheet"%3Bs.href%3Dt%2B"%2Fwidgets.css"%3Bdocument.getElementsByTagName("head")%5B0%5D.appendChild(s)%3Bvar e%3Ddocument.createElement("script")%3Be.src%3Dt%2B"%2Fwidgets.js"%3Bdocument.getElementsByTagName("head")%5B0%5D.appendChild(e)%7D)()%3B)'
+>this bookmarklet</a> to your browser for testing the widgets. It injects
+
+```html
+    <link rel="stylesheet" href="https://widgets.kotohomes.com/widgets.css" />
+    <script src="https://widgets.kotohomes.com/widgets.js" charset="utf-8" async></script>
+```
+
+into your page.
+
+You can then call `kotohomesWidget` from your javascript console to insert a widget onto any existing webpage and test out the integration in your browser without actually deploying any changes.
