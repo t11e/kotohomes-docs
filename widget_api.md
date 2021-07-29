@@ -25,7 +25,7 @@ Widgets are small embeddable views that can be put on a web page and display inf
     <script>
       kotohomesWidget({
         target: document.getElementById('example'),
-        siteId: 'site_YmivKwyCN88E309HgWyLZF4AxJg', // Get this from us
+        key: 'site_YmivKwyCN88E309HgWyLZF4AxJg', // Get this from us
         type: 'listings',
         options: {
           property_type: 'residential',
@@ -35,7 +35,7 @@ Widgets are small embeddable views that can be put on a web page and display inf
     </script>
 ```
 
-### `kotohomesWidget({siteId, type, target, options: {}})`
+### `kotohomesWidget({target, key, type, options: {}})`
 
 Embeds a widget in a DOM element. The document does not have to be ready for this method to be called. `listings` is currently the only type of widget supported.
 
