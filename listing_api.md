@@ -6,7 +6,7 @@ This API is solely intended for retrieving small sets of real estate listing dat
 
 ## Authentication
 
-All API requests must provide a valid `site_id` and `key` in the query string. Missing or invalid credentials as well as inactive accounts will yield an HTTP error code **403**.
+All API requests must provide a valid `key` in the query string. Missing or invalid credentials as well as inactive accounts will yield an HTTP error code **403**.
 
 
 
@@ -18,7 +18,6 @@ The parameters listed below may be added to the query string to filter the resul
 
 | Parameter                | Type         | Explanation                                                                              |
 | ------------------------ | ------------ | ---------------------------------------------------------------------------------------- |
-| **site_id** – _required_ | string       | Site identifier                                                                          |
 | **key** – _required_     | string       | Authentication key                                                                       |
 | **sort_by**              | string       | Sort results by `updated_at` or `created_at` in descending order (Default: `updated_at`) |
 | **mls_numbers[]**        | string array | Filter results based on one or more MLS numbers                                          |
@@ -95,7 +94,7 @@ The JSON response includes a top-level `data` key for an array of result listing
 | ------------------ | --------------------------------------------------------------------------------- |
 | 200                | Successfull request, with results in response body.                               |
 | 400                | Problem with query parameters. Check response body for clues.                     |
-| 403                | `site_id` or `key` are invalid.                                                   |
+| 403                | `key` is invalid.                                                   |
 | 500                | Server side error. Try again later.                                               |
 
 
@@ -104,7 +103,7 @@ The JSON response includes a top-level `data` key for an array of result listing
 Request for 25 most recently updated listings for site that are in either NY or NJ.
 
 ```bash
-$ curl "https://api.kotohomes.com/v1/listings?site_id=site_123&key=key_456&states[]=NY&states[]=NJ"
+$ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=NJ"
 ```
 
 
