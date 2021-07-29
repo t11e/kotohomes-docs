@@ -51,8 +51,6 @@ The listings widget renders one or more listings in a compact grid.
 
 `new_listings_only` (boolean) - only include new listings within 14 days (Default: false).
 
-`show_agent` (boolean) - show associated agent & broker next to the listing (Default: false).
-
 `result_limit` (integer) — number of results to show (Default: 1).
 
 `tiles_per_row` (integer) - number of tiles to show per row.
