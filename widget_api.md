@@ -65,16 +65,37 @@ The listings widget renders one or more listings in a compact grid.
 
 `property_type` (enum, see below, or an array of enums) - filters results by property_type.
 
-    commercial lease
-    commercial sale
+    acreage
+    apartment
+    cattle_ranch
+    commercial
+    community
+    condominium
+    duplex
     farm
+    fishing_land
+    foreclosure
+    garage
+    home_with_acreage
+    house
+    hunting_land
     lots_land
+    mobile_manufactured
+    mountain_land
     multifamily
-    other
+    new_construction
+    ranch
+    ranch_horse
+    recreational_land
     residential
-    residential common interest
-    residential lease
+    retail
+    senior_community
+    single_family
+    timberland
+    townhouse
     unspecified
+    vacation_home
+    waterfront
 
 `zip_codes` (string or array of strings) - filters results by zip_code.
 

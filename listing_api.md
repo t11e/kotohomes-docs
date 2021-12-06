@@ -16,30 +16,63 @@ The endpoint for all listing search requests is: https://api.kotohomes.com/v1/li
 
 The parameters listed below may be added to the query string to filter the results.
 
-| Parameter                | Type         | Explanation                                                                              |
-| ------------------------ | ------------ | ---------------------------------------------------------------------------------------- |
-| **key** – _required_     | string       | Authentication key                                                                       |
-| **sort_by**              | string       | Sort results by `updated_at` or `created_at` in descending order (Default: `updated_at`) |
-| **mls_numbers[]**        | string array | Filter results based on one or more MLS numbers                                          |
-| **property_types[]**     | string array | Filter results based on property types                                                   |
-| **states[]**             | string array | Filter results based on states                                                           |
-| **zip_codes[]**          | string array | Filter results based on ZIP codes                                                        |
-| **price_min**            | integer      | Minimum price (inclusive)                                                                |
-| **price_max**            | integer      | Maximum price (inclusive)                                                                |
-| **living_area_min**      | integer      | Minimum living area in square foot (inclusive)                                           |
-| **living_area_max**      | integer      | Maximum living area in square foot (inclusive)                                           |
-| **year_built_min**       | integer      | Minimum year built (inclusive)                                                           |
-| **year_built_max**       | integer      | Maximum year built (inclusive)                                                           |
-| **bedrooms_min**         | float        | Minimum bedroom count (inclusive)                                                        |
-| **bedrooms_max**         | float        | Maximum bedroom count (inclusive)                                                        |
-| **bathrooms_min**        | float        | Minimum bathroom count (inclusive) including fractional                                  |
-| **bathrooms_max**        | float        | Maximum bathroom count (inclusive) including fractional                                  |
-| **latitude** *           | float        | Geographic latitude of center location                                                   |
-| **longitude** *          | float        | Geographic longitude of center location                                                  |
-| **radius** *             | float        | Distance in miles from the provide `latitude` and `longitude`                            |
+| Parameter               | Type         | Explanation                                                                              |
+|-------------------------| ------------ | ---------------------------------------------------------------------------------------- |
+| **key** – _required_    | string       | Authentication key                                                                       |
+| **sort_by**             | string       | Sort results by `updated_at` or `created_at` in descending order (Default: `updated_at`) |
+| **mls_numbers[]**       | string array | Filter results based on one or more MLS numbers                                          |
+| **property_types[]** ** | string array | Filter results based on property types                                                   |
+| **states[]**            | string array | Filter results based on states                                                           |
+| **zip_codes[]**         | string array | Filter results based on ZIP codes                                                        |
+| **price_min**           | integer      | Minimum price (inclusive)                                                                |
+| **price_max**           | integer      | Maximum price (inclusive)                                                                |
+| **living_area_min**     | integer      | Minimum living area in square foot (inclusive)                                           |
+| **living_area_max**     | integer      | Maximum living area in square foot (inclusive)                                           |
+| **year_built_min**      | integer      | Minimum year built (inclusive)                                                           |
+| **year_built_max**      | integer      | Maximum year built (inclusive)                                                           |
+| **bedrooms_min**        | float        | Minimum bedroom count (inclusive)                                                        |
+| **bedrooms_max**        | float        | Maximum bedroom count (inclusive)                                                        |
+| **bathrooms_min**       | float        | Minimum bathroom count (inclusive) including fractional                                  |
+| **bathrooms_max**       | float        | Maximum bathroom count (inclusive) including fractional                                  |
+| **latitude** *          | float        | Geographic latitude of center location                                                   |
+| **longitude** *         | float        | Geographic longitude of center location                                                  |
+| **radius** *            | float        | Distance in miles from the provide `latitude` and `longitude`                            |
 
 (*) When location-based search is used, all 3 parameters must be provided.
 
+(**) Valid values for `property_types`:
+
+    acreage
+    apartment
+    cattle_ranch
+    commercial
+    community
+    condominium
+    duplex
+    farm
+    fishing_land
+    foreclosure
+    garage
+    home_with_acreage
+    house
+    hunting_land
+    lots_land
+    mobile_manufactured
+    mountain_land
+    multifamily
+    new_construction
+    ranch
+    ranch_horse
+    recreational_land
+    residential
+    retail
+    senior_community
+    single_family
+    timberland
+    townhouse
+    unspecified
+    vacation_home
+    waterfront
 
 
 
