@@ -20,10 +20,10 @@ The parameters listed below may be added to the query string to filter the resul
 |-------------------------| ------------ | ---------------------------------------------------------------------------------------- |
 | **key** – _required_    | string       | Authentication key                                                                       |
 | **sort_by**             | string array | Sort results by `created_at`, `updated_at`, `price`, `living,_area`, `year_built`, `bedrooms`, and/or `bathrooms`. Default sort direction is `asc`ending, but you can specify `asc` or `desc`  (Default: `updated_at desc`) |
-| **mls_numbers[]**       | string array | Filter results based on one or more MLS numbers                                          |
-| **property_types[]** ** | string array | Filter results based on property types                                                   |
-| **states[]**            | string array | Filter results based on states                                                           |
-| **zip_codes[]**         | string array | Filter results based on ZIP codes                                                        |
+| **mls_numbers**         | string array | Filter results based on one or more MLS numbers                                          |
+| **property_types** **   | string array | Filter results based on property types                                                   |
+| **states**              | string array | Filter results based on states                                                           |
+| **zip_codes**           | string array | Filter results based on ZIP codes                                                        |
 | **price_min**           | integer      | Minimum price (inclusive)                                                                |
 | **price_max**           | integer      | Maximum price (inclusive)                                                                |
 | **living_area_min**     | integer      | Minimum living area in square foot (inclusive)                                           |
@@ -189,3 +189,5 @@ $ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=N
 ### 2022-05-16:
 
 Added more sort by options.
+
+Removed `[]` from multivalue parameter names. Deprecated `[]` parameters will continue to work for now.
