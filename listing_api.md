@@ -186,6 +186,10 @@ $ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=N
 
 ## Changelog
 
+### 2021-07-29
+
+Removed `site_id` parameter from public listing API since the key is sufficient.
+
 ### 2022-05-16:
 
 Added more sort by options.
