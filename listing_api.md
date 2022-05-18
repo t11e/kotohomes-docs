@@ -19,7 +19,7 @@ The parameters listed below may be added to the query string to filter the resul
 | Parameter               | Type         | Explanation                                                                              |
 |-------------------------| ------------ | ---------------------------------------------------------------------------------------- |
 | **key** – _required_    | string       | Authentication key                                                                       |
-| **sort_by**             | string array | Sort results by `created_at`, `updated_at`, `price`, `living,_area`, `year_built`, `bedrooms`, and/or `bathrooms`. Default sort direction is `asc`ending, but you can specify `asc` or `desc`  (Default: `updated_at desc`) |
+| **sort_by**             | string array | Sort results by `created_at`, `updated_at`, `price`, `living_area`, `year_built`, `bedrooms`, and/or `bathrooms`. Default sort direction is `asc`ending, but you can specify `asc` or `desc`  (Default: `updated_at desc`) |
 | **mls_numbers**         | string array | Filter results based on one or more MLS numbers                                          |
 | **property_types** **   | string array | Filter results based on property types                                                   |
 | **states**              | string array | Filter results based on states                                                           |
