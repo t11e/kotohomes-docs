@@ -38,6 +38,7 @@ The parameters listed below may be added to the query string to filter the resul
 | **latitude**[^1]        | float        | Geographic latitude of center location                                                   |
 | **longitude**[^1]       | float        | Geographic longitude of center location                                                  |
 | **radius**[^1]          | float        | Distance in miles from the provide `latitude` and `longitude`                            |
+| **open_houses_only**    | boolean[^3]  | Only return listings with upcoming open houses                                           |
 
 [^1]: When location-based search is used, all 3 parameters must be provided.
 
@@ -75,7 +76,7 @@ The parameters listed below may be added to the query string to filter the resul
     vacation_home
     waterfront
 
-
+[^3]: Valid values for boolean parameters: `true`, `false`
 
 
 ## Response
@@ -190,6 +191,8 @@ $ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=N
 ### 2022-06-10
 
 Adds type search parameter to constrain search for just sale or rental listings.
+
+Adds open_house_only parameter to only return listings with upcoming open houses.
 
 ### 2022-05-16:
 
