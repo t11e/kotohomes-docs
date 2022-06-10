@@ -22,7 +22,7 @@ The parameters listed below may be added to the query string to filter the resul
 | **sort_by**             | string array | Sort results by `created_at`, `updated_at`, `price`, `living_area`, `year_built`, `bedrooms`, and/or `bathrooms`. Default sort direction is `asc`ending, but you can specify `asc` or `desc`  (Default: `updated_at desc`) |
 | **mls_numbers**         | string array | Filter results based on one or more MLS numbers                                          |
 | **type**                | string       | Filter results based on type of listing, one of `for_sale`, `for_rent`                   |
-| **property_types** **   | string array | Filter results based on property types                                                   |
+| **property_types**[^2]  | string array | Filter results based on property types                                                   |
 | **states**              | string array | Filter results based on states                                                           |
 | **zip_codes**           | string array | Filter results based on ZIP codes                                                        |
 | **price_min**           | integer      | Minimum price (inclusive)                                                                |
@@ -35,13 +35,13 @@ The parameters listed below may be added to the query string to filter the resul
 | **bedrooms_max**        | float        | Maximum bedroom count (inclusive)                                                        |
 | **bathrooms_min**       | float        | Minimum bathroom count (inclusive) including fractional                                  |
 | **bathrooms_max**       | float        | Maximum bathroom count (inclusive) including fractional                                  |
-| **latitude** *          | float        | Geographic latitude of center location                                                   |
-| **longitude** *         | float        | Geographic longitude of center location                                                  |
-| **radius** *            | float        | Distance in miles from the provide `latitude` and `longitude`                            |
+| **latitude**[^1]        | float        | Geographic latitude of center location                                                   |
+| **longitude**[^1]       | float        | Geographic longitude of center location                                                  |
+| **radius**[^1]          | float        | Distance in miles from the provide `latitude` and `longitude`                            |
 
-(*) When location-based search is used, all 3 parameters must be provided.
+[^1]: When location-based search is used, all 3 parameters must be provided.
 
-(**) Valid values for `property_types`:
+[^2]: Valid values for `property_types`:
 
     acreage
     apartment
