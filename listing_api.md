@@ -21,6 +21,7 @@ The parameters listed below may be added to the query string to filter the resul
 | **key** – _required_    | string       | Authentication key                                                                       |
 | **sort_by**             | string array | Sort results by `created_at`, `updated_at`, `price`, `living_area`, `year_built`, `bedrooms`, and/or `bathrooms`. Default sort direction is `asc`ending, but you can specify `asc` or `desc`  (Default: `updated_at desc`) |
 | **mls_numbers**         | string array | Filter results based on one or more MLS numbers                                          |
+| **type**                | string       | Filter results based on type of listing, one of `for_sale`, `for_rent`                   |
 | **property_types** **   | string array | Filter results based on property types                                                   |
 | **states**              | string array | Filter results based on states                                                           |
 | **zip_codes**           | string array | Filter results based on ZIP codes                                                        |
@@ -185,6 +186,10 @@ $ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=N
 ```
 
 ## Changelog
+
+### 2022-06-10
+
+Adds type search parameter to constrain search for just sale or rental listings.
 
 ### 2022-05-16:
 
