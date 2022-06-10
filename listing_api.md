@@ -120,7 +120,9 @@ The JSON response includes a top-level `data` key for an array of result listing
 | – **email**        | string   | Broker email                                                                      |
 | – **phone**        | string   | Broker phone number                                                               |
 | – **logo_url**     | string   | Broker logo image URL                                                             |
-
+| ***open_houses***  | list     |                                                                                   |
+| - **start**        | string   | UTC start time                                                                    |
+| - **end**          | string   | UTC end time                                                                      |
 
 
 
@@ -148,8 +150,8 @@ $ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=N
   "data": [
     {
       "id": "li_2hAk61Qi6hFGw6nfrRmG",
-      "created_at": "2021-04-25T17:35:23.809Z",
-      "updated_at": "2021-04-27T13:14:16.772Z",
+      "created_at": "2021-04-25T17:35:23Z",
+      "updated_at": "2021-04-27T13:14:16Z",
       "type": "for_sale",
       "mls_number": "NYRS-98765",
       "status": "active",
@@ -180,9 +182,12 @@ $ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=N
         "email": "...",
         "logo_url": "http://..."
       },
-      "photo_url": "https://..."
-    },
-    /* rest removed for brevity */
+      "photo_url": "https://...",
+      "open_houses": [
+        {"start": "2021-05-01T20:00:00Z", "end": "2021-05-01T21:00:00Z"},
+        {"start": "2021-05-05T20:00:00Z", "end": "2021-05-05T21:00:00Z"},
+      ]
+    }
    ]
 }
 ```
@@ -194,6 +199,7 @@ $ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=N
 Adds type search parameter to constrain search for just sale or rental listings.
 
 Adds open_house_only parameter to only return listings with upcoming open houses.
+Adds open_houses to the response payload when available.
 
 Adds territory parameter to only return listings within your predefined territory.
 
