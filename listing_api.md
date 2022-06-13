@@ -16,9 +16,16 @@ The endpoint for all listing search requests is: https://api.kotohomes.com/v1/li
 
 The parameters listed below may be added to the query string to filter the results.
 
+Mandatory parameters are:
+
+* `key` -- your API key
+* geofence enablers, one of:
+  * `latitude`, `longitude`, and `radius`
+  * `territory`
+
 | Parameter               | Type         | Explanation                                                                              |
 |-------------------------| ------------ | ---------------------------------------------------------------------------------------- |
-| **key** – _required_    | string       | Authentication key                                                                       |
+| **key**                 | string       | Authentication key                                                                       |
 | **sort_by**             | string array | Sort results by `created_at`, `updated_at`, `price`, `living_area`, `year_built`, `bedrooms`, and/or `bathrooms`. Default sort direction is `asc`ending, but you can specify `asc` or `desc`  (Default: `updated_at desc`) |
 | **mls_numbers**         | string array | Filter results based on one or more MLS numbers                                          |
 | **type**                | string       | Filter results based on type of listing, one of `for_sale`, `for_rent`                   |
@@ -130,18 +137,18 @@ The JSON response includes a top-level `data` key for an array of result listing
 
 | HTTP Status Code   | Explanation                                                                       |
 | ------------------ | --------------------------------------------------------------------------------- |
-| 200                | Successfull request, with results in response body.                               |
+| 200                | Successful request, with results in response body.                                |
 | 400                | Problem with query parameters. Check response body for clues.                     |
-| 403                | `key` is invalid.                                                   |
+| 403                | `key` is invalid.                                                                 |
 | 500                | Server side error. Try again later.                                               |
 
 
 ## Example
 
-Request for 25 most recently updated listings for site that are in either NY or NJ.
+Request for 25 most recently updated listings in a location.
 
-```bash
-$ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=NJ"
+```shell
+curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977&longitude=-77.0365&radius=20"
 ```
 
 
@@ -194,7 +201,7 @@ $ curl "https://api.kotohomes.com/v1/listings?key=key_456&states[]=NY&states[]=N
 
 ## Changelog
 
-### 2022-06-10
+### 2022-06-13
 
 Adds type search parameter to constrain search for just sale or rental listings.
 
@@ -202,6 +209,8 @@ Adds open_house_only parameter to only return listings with upcoming open houses
 Adds open_houses to the response payload when available.
 
 Adds territory parameter to only return listings within your predefined territory.
+
+You must now always provide latitude/longitude/radius or territory.
 
 ### 2022-05-16:
 
