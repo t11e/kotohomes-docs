@@ -35,17 +35,21 @@ Widgets are small embeddable views that can be put on a web page and display inf
     </script>
 ```
 
-### `kotohomesWidget({target, key, type, options: {}})`
+## Entrypoint
+
+```
+kotohomesWidget({target, key, type, options: {}})
+```
 
 Embeds a widget in a DOM element. The document does not have to be ready for this method to be called. `listings` is currently the only type of widget supported.
 
 The target element must be true DOM element.
 
-### `listings` Widget
+## `listings` Widget
 
 The listings widget renders one or more listings in a compact grid.
 
-#### Options
+### Options
 
 `status` (string or array of strings) - if present, filter to include only these status. Default is `active`
 
@@ -62,6 +66,8 @@ The listings widget renders one or more listings in a compact grid.
 `agent_uid` (string, e.g. `post.agent:endeavor.enclosure.sitename$1234` or array of strings) - filters results associated with agent.
 
 `broker_uid` (string, e.g. `post.broker:endeavor.enclosure.sitename$1234` or array of strings) - filters results associated with broker.
+
+`type` (enum, one of `for_sale` or `for_rent`) -- filters results by listing type
 
 `property_type` (enum, see below, or an array of enums) - filters results by property_type.
 
@@ -99,7 +105,7 @@ The listings widget renders one or more listings in a compact grid.
 
 `zip_codes` (string or array of strings) - filters results by zip_code.
 
-### Bookmarklet
+## Bookmarklet
 
 Add a bookmark with this as its URL `javascript:(function()%7Bvar%20t%3D%22https%3A%2F%2Fwidgets.kotohomes.com%22%3Bvar%20s%3Ddocument.createElement(%22link%22)%3Bs.charset%3D%22utf-8%22%3Bs.rel%3D%22stylesheet%22%3Bs.href%3Dt%2B%22%2Fwidgets.css%22%3Bdocument.getElementsByTagName(%22head%22)%5B0%5D.appendChild(s)%3Bvar%20e%3Ddocument.createElement(%22script%22)%3Be.charset%3D%22utf-8%22%3Be.src%3Dt%2B%22%2Fwidgets.js%22%3Bdocument.getElementsByTagName(%22head%22)%5B0%5D.appendChild(e)%7D)()%3B` to your browser for testing the widgets. It injects
 
@@ -111,3 +117,9 @@ Add a bookmark with this as its URL `javascript:(function()%7Bvar%20t%3D%22https
 into your page.
 
 You can then call `kotohomesWidget` from your javascript console to insert a widget onto any existing webpage and test out the integration in your browser without actually deploying any changes.
+
+## Changelog
+
+### 2022-06015
+
+Adds type search parameter to listings widget (for_sale, for_rent).
