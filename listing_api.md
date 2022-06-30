@@ -1,4 +1,4 @@
-# Kotohomes Listing API
+# Listing API
 
 This API is solely intended for retrieving small sets of real estate listing data that matches a given set of search filters, which in turn may be used for the generation of dynamic editorial content in a non-live fashion.
 
@@ -10,9 +10,91 @@ All API requests must provide a valid `key` in the query string. Missing or inva
 
 
 
-## Request
+## Listing Get
 
-The endpoint for all listing search requests is: https://api.kotohomes.com/v1/listings
+The endpoint for all listing get requests is one of:
+
+* https://api.enclosurehomes.com/v1/listings/{id}
+* https://api.kotohomes.com/v1/listings/{id}
+
+Mandatory parameters are:
+
+* `key` -- your API key
+
+### Response
+
+The JSON response is the listing content. Each listing object has the same content as documented in the `Listing Search`
+endpoint below.
+
+### Errors
+
+| HTTP Status Code   | Explanation                                                                       |
+| ------------------ | --------------------------------------------------------------------------------- |
+| 200                | Successful request, with results in response body.                                |
+| 400                | Problem with query parameters. Check response body for clues.                     |
+| 403                | `key` is invalid.                                                                 |
+| 404                | There is no such listing.                                                         |
+| 500                | Server side error. Try again later.                                               |
+
+### Example
+
+```shell
+curl "https://api.enclosurehomes.com/v1/listings/li_123456789xxxx?key=xxx123456789xxx"
+# or
+curl "https://api.kotohomes.com/v1/listings/li_123456789xxxx?key=xxx123456789xxx"
+```
+
+
+```json
+{
+  "id": "li_2hAk61Qi6hFGw6nfrRmG",
+  "created_at": "2021-04-25T17:35:23Z",
+  "updated_at": "2021-04-27T13:14:16Z",
+  "type": "for_sale",
+  "mls_number": "NYRS-98765",
+  "status": "active",
+  "property_type": "residential",
+  "description": "Quaint condo in the heart of the city ...",
+  "price": 500000,
+  "year_built": 1930,
+  "street_address": "20 W 34th St",
+  "unit_number": "2012B",
+  "city": "New York",
+  "state": "NY",
+  "zip_code": "10001",
+  "lot_size": 2,
+  "living_area": 2350,
+  "url": "https://...",
+  "longitude": -73.98562148465531,
+  "latitude": 40.74892817707063,
+  "bedrooms": 3,
+  "bathrooms": 2.5,
+  "agent": {
+    "name": "Listing Agent Name",
+    "email": "...",
+    "phone": "5555555554"
+  },
+  "broker": {
+    "name": "Listing Broker Name",
+    "phone": "5555555555",
+    "email": "...",
+    "logo_url": "http://..."
+  },
+  "photo_url": "https://...",
+  "open_houses": [
+    {"start": "2021-05-01T20:00:00Z", "end": "2021-05-01T21:00:00Z"},
+    {"start": "2021-05-05T20:00:00Z", "end": "2021-05-05T21:00:00Z"},
+  ]
+}
+```
+
+
+## Listing Search
+
+The endpoint for all listing search requests is one of:
+
+* https://api.enclosurehomes.com/v1/listings
+* https://api.kotohomes.com/v1/listings
 
 The parameters listed below may be added to the query string to filter the results.
 
@@ -87,7 +169,7 @@ Mandatory parameters are:
 [^3]: Valid values for boolean parameters: `true`, `false`
 
 
-## Response
+### Response
 
 The JSON response includes a top-level `data` key for an array of result listing objects. Each listing object has the following content.
 
@@ -133,7 +215,7 @@ The JSON response includes a top-level `data` key for an array of result listing
 
 
 
-## Errors
+### Errors
 
 | HTTP Status Code   | Explanation                                                                       |
 | ------------------ | --------------------------------------------------------------------------------- |
@@ -143,11 +225,13 @@ The JSON response includes a top-level `data` key for an array of result listing
 | 500                | Server side error. Try again later.                                               |
 
 
-## Example
+### Example
 
 Request for 25 most recently updated listings in a location.
 
 ```shell
+curl "https://api.enclosurehomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977&longitude=-77.0365&radius=20"
+# or
 curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977&longitude=-77.0365&radius=20"
 ```
 
@@ -200,6 +284,10 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 ```
 
 ## Changelog
+
+### 2022-06-30
+
+Adds endpoint to fetch just a single listing.
 
 ### 2022-06-13
 
