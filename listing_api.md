@@ -101,9 +101,11 @@ The parameters listed below may be added to the query string to filter the resul
 Mandatory parameters are:
 
 * `key` -- your API key
-* geofence enablers, one of:
+* at least one constraint:
   * `latitude`, `longitude`, and `radius`
   * `territory`
+  * `zip_codes`
+  * `mls_numbers`
 
 | Parameter               | Type         | Explanation                                                                              |
 |-------------------------| ------------ | ---------------------------------------------------------------------------------------- |
@@ -286,6 +288,9 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 ## Changelog
 
 ### 2022-06-30
+
+For search, both `zip_codes` and `mls_numbers` are accepted as valid constraints when enforcing that at least one
+constraint is provided.
 
 Adds endpoint to fetch just a single listing.
 
