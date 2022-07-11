@@ -201,6 +201,10 @@ The JSON response includes a top-level `data` key for an array of result listing
 | **latitude**       | float    | Latitude of listing location                                                      |
 | **bedrooms**       | float    | Number of full and fractional bedrooms                                            |
 | **bathrooms**      | float    | Number of full and fractional bathrooms                                           |
+| **bathrooms_full**          | integer  | Number of full bathrooms                                                 |
+| **bathrooms_three_quarter** | integer  | Number of three quarter  bathrooms                                       |
+| **bathrooms_half**          | integer  | Number of half bathrooms                                                 |
+| **bathrooms_quarter**       | integer  | Number of quarter bathrooms                                              |
 | **photo_url**      | string   | Primary listing photo URL                                                         |
 | ***agent***        | object   |                                                                                   |
 | – **name**         | string   | Agent name                                                                        |
@@ -264,6 +268,10 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
       "latitude": 40.74892817707063,
       "bedrooms": 3,
       "bathrooms": 2.5,
+      "bathrooms_full": 2,
+      "bathrooms_three_quarter": null,
+      "bathrooms_half": 1,
+      "bathrooms_quarter": null,
       "agent": {
         "name": "Listing Agent Name",
         "email": "...",
@@ -286,6 +294,10 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 ```
 
 ## Changelog
+
+### 2022-07-11
+
+Expands listing output to include full, 3/4, half and 1/4 bath counts.
 
 ### 2022-06-30
 
