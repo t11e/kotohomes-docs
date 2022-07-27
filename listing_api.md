@@ -51,40 +51,7 @@ curl "https://api.kotohomes.com/v1/listings/li_123456789xxxx?key=xxx123456789xxx
   "created_at": "2021-04-25T17:35:23Z",
   "updated_at": "2021-04-27T13:14:16Z",
   "type": "for_sale",
-  "mls_number": "NYRS-98765",
-  "status": "active",
-  "property_type": "residential",
-  "description": "Quaint condo in the heart of the city ...",
-  "price": 500000,
-  "year_built": 1930,
-  "street_address": "20 W 34th St",
-  "unit_number": "2012B",
-  "city": "New York",
-  "state": "NY",
-  "zip_code": "10001",
-  "lot_size": 2,
-  "living_area": 2350,
-  "url": "https://...",
-  "longitude": -73.98562148465531,
-  "latitude": 40.74892817707063,
-  "bedrooms": 3,
-  "bathrooms": 2.5,
-  "agent": {
-    "name": "Listing Agent Name",
-    "email": "...",
-    "phone": "5555555554"
-  },
-  "broker": {
-    "name": "Listing Broker Name",
-    "phone": "5555555555",
-    "email": "...",
-    "logo_url": "http://..."
-  },
-  "photo_url": "https://...",
-  "open_houses": [
-    {"start": "2021-05-01T20:00:00Z", "end": "2021-05-01T21:00:00Z"},
-    {"start": "2021-05-05T20:00:00Z", "end": "2021-05-05T21:00:00Z"},
-  ]
+  "_": "rest of content trimmed for brevity"
 }
 ```
 
@@ -205,6 +172,8 @@ The JSON response includes a top-level `data` key for an array of result listing
 | **bathrooms_three_quarter** | integer  | Number of three quarter  bathrooms                                       |
 | **bathrooms_half**          | integer  | Number of half bathrooms                                                 |
 | **bathrooms_quarter**       | integer  | Number of quarter bathrooms                                              |
+| **photo_count**    | integer  | Number of photos                                                                  |
+| **photo_template** | string   | URL template used to fetch photos                                                 |
 | **photo_url**      | string   | Primary listing photo URL                                                         |
 | ***agent***        | object   |                                                                                   |
 | – **name**         | string   | Agent name                                                                        |
@@ -219,6 +188,23 @@ The JSON response includes a top-level `data` key for an array of result listing
 | - **start**        | string   | UTC start time                                                                    |
 | - **end**          | string   | UTC end time                                                                      |
 
+#### photo_template
+
+The `photo_template` field contains a URL template that you can use to fetch any of the photos for the listing, e.g.
+`https://example.com/v1/listings/li_1234567890/photo?offset={offset}&size={size}`
+
+You are expected to replace the placeholders with valid values before this URL will work. The placeholders are wrapped
+in curly braces `{}` and are:
+
+* `{offset}` -- a positive integer less than `photo_count` and is the 0-based photo offset
+* `{size}` -- a prebaked size constraint, options are:
+
+| size     | maximum width or height |
+|----------|-------------------------|
+| small    | 300                     |
+| medium   | 800                     |
+| large    | 1200                    |
+| original | not constrained         |
 
 
 ### Errors
@@ -283,6 +269,8 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
         "email": "...",
         "logo_url": "http://..."
       },
+      "photo_count": 5,
+      "photo_template": "https://...",
       "photo_url": "https://...",
       "open_houses": [
         {"start": "2021-05-01T20:00:00Z", "end": "2021-05-01T21:00:00Z"},
@@ -294,6 +282,10 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 ```
 
 ## Changelog
+
+### 2022-07-22
+
+Adds `photo_count` and `photo_template` to listing output.
 
 ### 2022-07-11
 
