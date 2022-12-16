@@ -285,36 +285,36 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 
 ### 2022-07-22
 
-Adds `photo_count` and `photo_template` to listing output.
+Add `photo_count` and `photo_template` to listing output.
 
 ### 2022-07-11
 
-Expands listing output to include full, 3/4, half and 1/4 bath counts.
+Expand listing output to include full, 3/4, half and 1/4 bath counts.
 
 ### 2022-06-30
 
 For search, both `zip_codes` and `mls_numbers` are accepted as valid constraints when enforcing that at least one
 constraint is provided.
 
-Adds endpoint to fetch just a single listing.
+Add endpoint to fetch just a single listing.
 
 ### 2022-06-13
 
-Adds type search parameter to constrain search for just sale or rental listings.
+Add type search parameter to constrain search for just sale or rental listings.
 
-Adds open_house_only parameter to only return listings with upcoming open houses.
-Adds open_houses to the response payload when available.
+Add open_house_only parameter to only return listings with upcoming open houses.
+Add open_houses to the response payload when available.
 
-Adds territory parameter to only return listings within your predefined territory.
+Add territory parameter to only return listings within your predefined territory.
 
 You must now always provide latitude/longitude/radius or territory.
 
 ### 2022-05-16:
 
-Added more sort by options.
+Add more sort by options.
 
-Removed `[]` from multivalue parameter names. Deprecated `[]` parameters will continue to work for now.
+Remove `[]` from multivalue parameter names. Deprecated `[]` parameters will continue to work for now.
 
 ### 2021-07-29
 
-Removed `site_id` parameter from public listing API since the key is sufficient.
+Remove `site_id` parameter from public listing API since the key is sufficient.
