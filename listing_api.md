@@ -98,6 +98,7 @@ Mandatory parameters are:
 | **radius**[^1]          | float        | Distance in miles from the provide `latitude` and `longitude`                            |
 | **open_houses_only**    | boolean[^3]  | Only return listings with upcoming open houses                                           |
 | **territory**           | string       | Filter results based on a predefined territory id                                        |
+| **created_min**         | datetime[^4] | Minimum creation time (inclusive)                                                        |
 
 [^1]: When location-based search is used, all 3 parameters must be provided.
 
@@ -137,6 +138,7 @@ Mandatory parameters are:
 
 [^3]: Valid values for boolean parameters: `true`, `false`
 
+[^4]: Datetimes should be in ISO 8601 format `YYYY-MM-DDThh:mm[:ss][+HH:MM|-HH:MM|Z]`, e.g: `2022-12-16T10:20:00-05:00`
 
 ### Response
 
@@ -282,6 +284,10 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 ```
 
 ## Changelog
+
+## 2022-12-21
+
+Add `created_min` search parameter.
 
 ### 2022-07-22
 
