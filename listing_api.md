@@ -74,31 +74,32 @@ Mandatory parameters are:
   * `zip_codes`
   * `mls_numbers`
 
-| Parameter               | Type         | Explanation                                                                              |
-|-------------------------| ------------ | ---------------------------------------------------------------------------------------- |
-| **key**                 | string       | Authentication key                                                                       |
-| **sort_by**             | string array | Sort results by `created_at`, `updated_at`, `price`, `living_area`, `year_built`, `bedrooms`, and/or `bathrooms`. Default sort direction is `asc`ending, but you can specify `asc` or `desc`  (Default: `updated_at desc`) |
-| **mls_numbers**         | string array | Filter results based on one or more MLS numbers                                          |
-| **type**                | string       | Filter results based on type of listing, one of `for_sale`, `for_rent`                   |
-| **property_types**[^2]  | string array | Filter results based on property types                                                   |
-| **states**              | string array | Filter results based on states                                                           |
-| **zip_codes**           | string array | Filter results based on ZIP codes                                                        |
-| **price_min**           | integer      | Minimum price (inclusive)                                                                |
-| **price_max**           | integer      | Maximum price (inclusive)                                                                |
-| **living_area_min**     | integer      | Minimum living area in square foot (inclusive)                                           |
-| **living_area_max**     | integer      | Maximum living area in square foot (inclusive)                                           |
-| **year_built_min**      | integer      | Minimum year built (inclusive)                                                           |
-| **year_built_max**      | integer      | Maximum year built (inclusive)                                                           |
-| **bedrooms_min**        | float        | Minimum bedroom count (inclusive)                                                        |
-| **bedrooms_max**        | float        | Maximum bedroom count (inclusive)                                                        |
-| **bathrooms_min**       | float        | Minimum bathroom count (inclusive) including fractional                                  |
-| **bathrooms_max**       | float        | Maximum bathroom count (inclusive) including fractional                                  |
-| **latitude**[^1]        | float        | Geographic latitude of center location                                                   |
-| **longitude**[^1]       | float        | Geographic longitude of center location                                                  |
-| **radius**[^1]          | float        | Distance in miles from the provide `latitude` and `longitude`                            |
-| **open_houses_only**    | boolean[^3]  | Only return listings with upcoming open houses                                           |
-| **territory**           | string       | Filter results based on a predefined territory id                                        |
-| **created_min**         | datetime[^4] | Minimum creation time (inclusive)                                                        |
+| Parameter               | Type             | Explanation                                                                              |
+|-------------------------| ---------------- | ---------------------------------------------------------------------------------------- |
+| **key**                 | string           | Authentication key                                                                       |
+| **sort_by**             | string array[^5] | Sort results by `created_at`, `updated_at`, `price`, `living_area`, `year_built`, `bedrooms`, and/or `bathrooms`. Default sort direction is `asc`ending, but you can specify `asc` or `desc`  (Default: `updated_at desc`) |
+| **limit**               | integer          | Number of results to return, must be between 1 and 50 inclusive and defaults to 25       |
+| **mls_numbers**         | string array[^5] | Filter results based on one or more MLS numbers                                          |
+| **type**                | string           | Filter results based on type of listing, one of `for_sale`, `for_rent`                   |
+| **property_types**[^2]  | string array[^5] | Filter results based on property types                                                   |
+| **states**              | string array[^5] | Filter results based on states                                                           |
+| **zip_codes**           | string array[^5] | Filter results based on ZIP codes                                                        |
+| **price_min**           | integer          | Minimum price (inclusive)                                                                |
+| **price_max**           | integer          | Maximum price (inclusive)                                                                |
+| **living_area_min**     | integer          | Minimum living area in square foot (inclusive)                                           |
+| **living_area_max**     | integer          | Maximum living area in square foot (inclusive)                                           |
+| **year_built_min**      | integer          | Minimum year built (inclusive)                                                           |
+| **year_built_max**      | integer          | Maximum year built (inclusive)                                                           |
+| **bedrooms_min**        | float            | Minimum bedroom count (inclusive)                                                        |
+| **bedrooms_max**        | float            | Maximum bedroom count (inclusive)                                                        |
+| **bathrooms_min**       | float            | Minimum bathroom count (inclusive) including fractional                                  |
+| **bathrooms_max**       | float            | Maximum bathroom count (inclusive) including fractional                                  |
+| **latitude**[^1]        | float            | Geographic latitude of center location                                                   |
+| **longitude**[^1]       | float            | Geographic longitude of center location                                                  |
+| **radius**[^1]          | float            | Distance in miles from the provide `latitude` and `longitude`                            |
+| **open_houses_only**    | boolean[^3]      | Only return listings with upcoming open houses                                           |
+| **territory**           | string           | Filter results based on a predefined territory id                                        |
+| **created_min**         | datetime[^4]     | Minimum creation time (inclusive)                                                        |
 
 [^1]: When location-based search is used, all 3 parameters must be provided.
 
@@ -139,6 +140,8 @@ Mandatory parameters are:
 [^3]: Valid values for boolean parameters: `true`, `false`
 
 [^4]: Datetimes should be in ISO 8601 format `YYYY-MM-DDThh:mm[:ss][+HH:MM|-HH:MM|Z]`, e.g: `2022-12-16T10:20:00-05:00`
+
+[^5]: Multiple values are specified by repeating the query parameter multiple times. e.g. `?states=NY&states=NJ`
 
 ### Response
 
@@ -284,6 +287,11 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 ```
 
 ## Changelog
+
+## 2023-07-14
+
+Add `limit` search parameter.
+Add footnote describing how to search with multiple values for supported fields.
 
 ## 2022-12-21
 
