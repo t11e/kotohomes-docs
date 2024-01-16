@@ -206,9 +206,9 @@ in curly braces `{}` and are:
 
 | size     | maximum width or height |
 |----------|-------------------------|
-| small    | 300                     |
-| medium   | 800                     |
-| large    | 1200                    |
+| small    | 480x360                 |
+| medium   | 640x480                 |
+| large    | 1024x768                |
 | original | not constrained         |
 
 
@@ -287,6 +287,10 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 ```
 
 ## Changelog
+
+## 2023-01-12
+
+Update maximum image sizes in the listing `photo_template`.
 
 ## 2023-07-14
 
