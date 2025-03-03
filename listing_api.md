@@ -70,7 +70,6 @@ Mandatory parameters are:
 * `key` -- your API key
 * at least one constraint:
   * `latitude`, `longitude`, and `radius`
-  * `territory`
   * `zip_codes`
   * `mls_numbers`
 
@@ -98,7 +97,6 @@ Mandatory parameters are:
 | **longitude**[^1]       | float            | Geographic longitude of center location                                                  |
 | **radius**[^1]          | float            | Distance in miles from the provide `latitude` and `longitude`                            |
 | **open_houses_only**    | boolean[^3]      | Only return listings with upcoming open houses                                           |
-| **territory**           | string           | Filter results based on a predefined territory id                                        |
 | **created_min**         | datetime[^4]     | Minimum creation time (inclusive)                                                        |
 
 [^1]: When location-based search is used, all 3 parameters must be provided.
@@ -287,6 +285,10 @@ curl "https://api.kotohomes.com/v1/listings?key=xxx123456789xxx&latitude=38.8977
 ```
 
 ## Changelog
+
+## 2025-03-03
+
+Remove obsolete territory parameter.
 
 ## 2023-01-12
 
